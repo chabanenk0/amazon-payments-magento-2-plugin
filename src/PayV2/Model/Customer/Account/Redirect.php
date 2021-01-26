@@ -25,6 +25,7 @@ use Magento\Framework\Controller\ResultFactory;
 use Magento\Framework\Stdlib\Cookie\CookieMetadataFactory;
 use Magento\Framework\Url\DecoderInterface;
 use Magento\Framework\UrlInterface;
+use Magento\Framework\Url\HostChecker;
 use Magento\Store\Model\StoreManagerInterface;
 
 class Redirect extends BaseRedirect
@@ -48,7 +49,7 @@ class Redirect extends BaseRedirect
         DecoderInterface $urlDecoder,
         CustomerUrl $customerUrl,
         ResultFactory $resultFactory,
-        CookieMetadataFactory $cookieMetadataFactory,
+        HostChecker $hostChecker,
         CheckoutSession $checkoutSession
     ) {
         parent::__construct(
@@ -60,7 +61,7 @@ class Redirect extends BaseRedirect
             $urlDecoder,
             $customerUrl,
             $resultFactory,
-            $cookieMetadataFactory
+            $hostChecker
         );
 
         $this->customerSession = $customerSession;
